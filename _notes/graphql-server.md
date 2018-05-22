@@ -1,6 +1,6 @@
 ## QraphQL Schema / Types
 schemas specify the types for API 
-
+The application schema defines the GraphQL operations you can send from the frontend
 
 ## Query
 People commonly call everything that hits your GraphQL API server a "query".
