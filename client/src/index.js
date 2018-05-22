@@ -4,9 +4,10 @@
 */
 import React from 'react'
 import ReactDOM from 'react-dom'
-import './styles/index.css'
-import App from './components/App'
+import './index.css'
+import App from './App'
 import registerServiceWorker from './registerServiceWorker'
+
 // 1 importing the required dependencies
 import { ApolloProvider } from 'react-apollo'
 import { ApolloClient } from 'apollo-client'

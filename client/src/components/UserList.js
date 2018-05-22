@@ -1,17 +1,26 @@
-import React from 'react'
+import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import User from './User'
 
-const UserList = ({ users}) => (
-  <ul>
-    {users.map(user=>
-      <User
-        key={user.id}
-        {...todo}
-        onClick={() => toggleTodo(todo.id)}
-      />
-    )}
-  </ul>
-)
-
-export default UserList
+class UserList extends Component {
+    render() {
+      const usersToRender = [
+        {
+          id: '1',
+          name: 'Ben',
+          age: 99,
+        },
+        {
+          id: '2',
+          name: 'Lily',
+          age: 14,
+        },
+      ]
+  
+      return (
+        <div>{usersToRender.map(user => <User key={user.id} user={user} />)}</div>
+      )
+    }
+  }
+  
+  export default UserList

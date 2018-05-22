@@ -1,12 +1,10 @@
 import React from 'react'
 import { ApolloProvider } from 'react-apollo';
 
-import UserList from '../containers/UserList'
+import UserList from './components/UserList'
 
 const App = () => (
-  <div>
     <UserList />
-  </div>
 )
 
 export default App
