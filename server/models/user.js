@@ -10,7 +10,7 @@ var userSchema = new Schema({
     required: true
   },
   age: {
-    type: Int,
+    type: Number,
     required: true,
     default: 30
   }

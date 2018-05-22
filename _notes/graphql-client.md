@@ -21,3 +21,43 @@
 ## Config apollo client in index.js
 In contrast to working with REST APIs, you don’t have to deal with constructing your own HTTP requests any more.
 Instead you can simply write queries and mutations and send them using an **ApolloClient** instance.
+
+
+## Writing GraphQL query 
+When using Apollo, you’ve got two ways of sending queries to the server.
+
+- Directly use the query method on the ApolloClient directly.  This is a very direct way of fetching data and will allow you to process the response as a promise.
+```
+client.query({
+  query: gql`
+    query FeedQuery {
+      feed {
+        links {
+          id
+        }
+      }
+    }
+  `
+}).then(response => console.log(response.data.allLinks))
+```
+-  Use Apollo’s higher-order component graphql to wrap your React component with a query.
+```
+    // 1
+    const FEED_QUERY = gql`
+    # 2
+    query FeedQuery {
+        feed {
+        links {
+            id
+            createdAt
+            url
+            description
+        }
+        }
+    }
+    `
+
+    // 3
+    export default graphql(FEED_QUERY, { name: 'feedQuery' }) (LinkList)
+```
+
