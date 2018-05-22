@@ -1,13 +1,13 @@
 module.exports = {
     //MongoDB configuration
     development: {
-        db: 'mongodb://127.0.0.1/graphql',
+        db: 'mongodb://admin:admin123@ds059516.mlab.com:59516/db-graphql',
         app: {
             name: 'graphql'
         }
     },
     production: {
-        db: 'mongodb://<username>:<password>@ds157325.mlab.com:57325/graphql-api',
+        db: 'mongodb://admin:admin123@ds059516.mlab.com:59516/db-graphql',
         app: {
             name: 'graphql'
         }

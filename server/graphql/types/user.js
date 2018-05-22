@@ -1,4 +1,6 @@
-
+/*
+using GraphQL schema language to design user schema to specify the types for API . 
+*/
 
 var GraphQLObjectType = require('graphql').GraphQLObjectType;
 var GraphQLNonNull = require('graphql').GraphQLNonNull;
