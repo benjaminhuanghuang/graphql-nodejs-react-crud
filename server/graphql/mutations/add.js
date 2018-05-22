@@ -1,6 +1,7 @@
 
 var GraphQLNonNull = require('graphql').GraphQLNonNull;
 var GraphQLString = require('graphql').GraphQLString;
+var GraphQLInt= require('graphql').GraphQLInt;
 var UserType = require('../types/user');
 var UserModel = require('../../models/user');
 
@@ -9,6 +10,9 @@ exports.add = {
   args: {
     name: {
       type: new GraphQLNonNull(GraphQLString),
+    },
+    age: {
+      type: new GraphQLNonNull(GraphQLInt),
     }
   },
   resolve(root, params) {

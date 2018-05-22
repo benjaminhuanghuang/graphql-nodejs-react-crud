@@ -15,7 +15,7 @@ import { HttpLink } from 'apollo-link-http'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 
 // 2 Create the HttpLink that will connect your ApolloClient instance with the GraphQL API
-const httpLink = new HttpLink({ uri: 'http://localhost:4000' })
+const httpLink = new HttpLink({ uri: 'http://localhost:4000/graphql' })
 
 // 3 instantiate ApolloClient
 const client = new ApolloClient({

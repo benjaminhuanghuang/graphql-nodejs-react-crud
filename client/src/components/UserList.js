@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-import { graphql } from 'react-apollo'
-import gql from 'graphql-tag'
+import { graphql } from 'react-apollo';
+import gql from 'graphql-tag';
 
-import User from './User'
+import User from './User';
 
 class UserList extends Component {
     render() {
@@ -19,7 +19,6 @@ class UserList extends Component {
         //       age: 14,
         //     },
         //   ]
-
         if (this.props.fetchUserResult && this.props.fetchUserResult.loading) {
             return <div>Loading</div>
         }
@@ -28,7 +27,7 @@ class UserList extends Component {
             return <div>Error</div>
         }
 
-        const usersToRender = this.props.feedQuery.fetchUserResult.users
+        const usersToRender = this.props.fetchUserResult.users
 
         return (
             <div>{usersToRender.map(user => <User key={user.id} user={user} />)}</div>
@@ -40,10 +39,11 @@ const FETCH_USERS_QUERY = gql`
         users {
             id
             name
+            age
         }
     }
 `
 //sending queries to the server by wrapping React component with a query.
 // Apollo injected a new prop nameed 'fetchUserResult' into the component, 
 //  the injected prop would be called 'data' by default.
-export default graphql(FETCH_USERS_QUERY, {name: 'fetchUserResult'}) (UserList)
+export default graphql(FETCH_USERS_QUERY, { name: 'fetchUserResult' })(UserList)

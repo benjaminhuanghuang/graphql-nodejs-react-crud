@@ -6,6 +6,7 @@ var GraphQLObjectType = require('graphql').GraphQLObjectType;
 var GraphQLNonNull = require('graphql').GraphQLNonNull;
 var GraphQLID = require('graphql').GraphQLID;
 var GraphQLString = require('graphql').GraphQLString;
+var GraphQLInt = require('graphql').GraphQLInt;
 
 // User Type
 exports.userType = new GraphQLObjectType({
@@ -17,6 +18,9 @@ exports.userType = new GraphQLObjectType({
       },
       name: {
         type: GraphQLString
+      },
+      age: {
+        type: GraphQLInt
       }
     }
   }
