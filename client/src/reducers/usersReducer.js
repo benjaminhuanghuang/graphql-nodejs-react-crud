@@ -1,17 +1,14 @@
+import * as userActionTypes from "../constants/userActionTypes";
 
+const initialState = {
+  users: []
+};
 
 const usersReducer = (state = [], action) => {
     switch (action.type) {
-      case 'ADD_TODO':
-        return [
-          ...state,
-          {
-            id: action.id,
-            text: action.text,
-            completed: false
-          }
-        ]
-      case 'TOGGLE_TODO':
+      case userActionTypes.ADD_USER:
+        return { ...state, users: [...state.users, action.payload] };
+      case userActionTypes.FETCHE_USERS:
         return state.map(todo =>
           (todo.id === action.id)
             ? {...todo, completed: !todo.completed}

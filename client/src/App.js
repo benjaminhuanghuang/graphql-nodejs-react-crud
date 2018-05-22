@@ -1,10 +1,10 @@
 import React from 'react'
-import AddUser from '../containers/AddUser'
+import { ApolloProvider } from 'react-apollo';
+
 import UserList from '../containers/UserList'
 
 const App = () => (
   <div>
-    <AddUser />
     <UserList />
   </div>
 )

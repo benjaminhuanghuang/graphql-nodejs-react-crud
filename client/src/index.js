@@ -1,15 +1,33 @@
+/*
+    In contrast to working with REST APIs, you don’t have to deal with constructing your own HTTP requests any more.
+    Instead you can write queries and mutations and send them using an **ApolloClient** instance.
+*/
 import React from 'react'
-import { render } from 'react-dom'
-import { createStore } from 'redux'
-import { Provider } from 'react-redux'
+import ReactDOM from 'react-dom'
+import './styles/index.css'
 import App from './components/App'
-import rootReducer from './reducers'
+import registerServiceWorker from './registerServiceWorker'
+// 1 importing the required dependencies
+import { ApolloProvider } from 'react-apollo'
+import { ApolloClient } from 'apollo-client'
+import { HttpLink } from 'apollo-link-http'
+import { InMemoryCache } from 'apollo-cache-inmemory'
 
-const store = createStore(rootReducer)
+// 2 Create the HttpLink that will connect your ApolloClient instance with the GraphQL API
+const httpLink = new HttpLink({ uri: 'http://localhost:4000' })
 
-render(
-    <Provider store={store}>
+// 3 instantiate ApolloClient
+const client = new ApolloClient({
+    link: httpLink,
+    cache: new InMemoryCache()
+})
+
+// 4 Finally you render the root component of your React app. The App is wrapped with the higher-order component 
+// ApolloProvider that gets passed the client as a prop.
+ReactDOM.render(
+    <ApolloProvider client={client}>
         <App />
-    </Provider>,
-    document.getElementById('root')
+    </ApolloProvider>
+    , document.getElementById('root')
 )
+registerServiceWorker()
