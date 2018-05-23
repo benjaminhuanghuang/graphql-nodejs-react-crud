@@ -1,25 +1,26 @@
 import React, { Component } from 'react';
-
+import { Switch, Route, Redirect } from 'react-router-dom'
 
 import Header from './components/Header'
-import UserList from './components/UserList'
-import CreateUser from './components/CreateUser'
+import TodoList from './components/TodoList'
+import CreateTodo from './components/CreateTodo'
+import Login from './components/Login'
+import Search from './components/Search'
 
-import { Switch, Route, Redirect } from 'react-router-dom'
 
 class App extends Component {
   render() {
     return (
-      <div className="center w85">
+      <div className='center w85'>
         <Header />
-        <div className="ph3 pv1 background-gray">
+        <div className='ph3 pv1 background-gray'>
           <Switch>
-            <Route exact path="/" component={UserList} />
-            <Route exact path="/create" component={CreateUser} />
-            {/* <Route exact path="/login" component={Login} />
-            <Route exact path="/search" component={Search} />
-            <Route exact path="/top" component={LinkList} />
-            <Route exact path="/new/:page" component={LinkList} /> */}
+            <Route exact path='/' render={() => <Redirect to='/new/1' />} />
+            <Route exact path='/login' component={Login} />
+            <Route exact path='/create' component={CreateTodo} />
+            <Route exact path='/search' component={Search} />
+            <Route exact path='/top' component={TodoList} />
+            <Route exact path='/new/:page' component={TodoList} />
           </Switch>
         </div>
       </div>

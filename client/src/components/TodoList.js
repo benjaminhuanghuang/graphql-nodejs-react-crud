@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 
-import User from './User';
+import Todo from './Todo';
 
-class UserList extends Component {
+class TodoList extends Component {
     render() {
         //   const usersToRender = [
         //     {
@@ -30,7 +30,7 @@ class UserList extends Component {
         const usersToRender = this.props.fetchUserResult.users
 
         return (
-            <div>{usersToRender.map(user => <User key={user.id} user={user} />)}</div>
+            <div>{usersToRender.map(user => <Todo key={user.id} user={user} />)}</div>
         )
     }
 }
@@ -46,4 +46,4 @@ const FETCH_USERS_QUERY = gql`
 //sending queries to the server by wrapping React component with a query.
 // Apollo injected a new prop nameed 'fetchUserResult' into the component, 
 //  the injected prop would be called 'data' by default.
-export default graphql(FETCH_USERS_QUERY, { name: 'fetchUserResult' })(UserList)
+export default graphql(FETCH_USERS_QUERY, { name: 'fetchUserResult' })(TodoList)

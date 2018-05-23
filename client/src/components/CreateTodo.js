@@ -3,7 +3,7 @@ import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 
 
-class CreateUser extends Component {
+class CreateTodo extends Component {
     state = {
         description: '',
         url: '',
@@ -38,4 +38,4 @@ class CreateUser extends Component {
     }
 }
 
-export default CreateUser
+export default CreateTodo
